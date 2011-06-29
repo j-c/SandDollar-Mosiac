@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>index</title>
+		<meta name="description" content="" />
+		<meta name="generator" content="Studio 3 http://aptana.com/" />
+		<meta name="author" content="Joel" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	</head>
+	<body style="margin: 0; padding: 0;">
+		<div style="overflow: hidden; width: 100%; height: 100%">
+			<!-- comment to prevent aptana from being upset about an empty div -->
+			<canvas id="mosiac"></canvas>
+		</div>
+		<script type="text/javascript" src="SandDollarMosiac.js"></script>
+		<script type="text/javascript" src="CGlyph.js"></script>
+		<script type="text/javascript" src="FibonachiGen.js"></script>
+		<script type="text/javascript" src="HailStoneGen.js"></script>
+		<script type="text/javascript" src="SineGen.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+			var c = document.getElementById("mosiac");
+			function setCanvasSize () {
+				c.width = window.innerWidth;
+				c.height = window.innerHeight;
+			}
+			setCanvasSize();
+			
+			var _s = new SandDollarMosiac();
+			_s.setCanvas(c);
+			//_s.setGlyphGenerator(new SandDollarGlyphGenerator());
+			_s.setGlyphGenerator(new CGlyphGenerator());
+			//_s.setNumberGenerator(new SandDollarNumberGenerator());
+			//_s.setNumberGenerator(new FibonachiNumberGenerator());
+			//_s.setNumberGenerator(new HailStoneGenerator());
+			_s.setNumberGenerator(new SineGenerator());
+			_s.draw();
+			
+			function onResize() {
+				setCanvasSize();
+				_s.draw();
+			}
+			
+			var resizeTimer;
+			window.onresize = function () {
+			    clearTimeout(resizeTimer);
+			    resizeTimer = setTimeout(onResize, 10);
+			}
+		//]]>
+		</script>
+	</body>
+</html>
