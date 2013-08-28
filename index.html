@@ -39,12 +39,12 @@
 			
 			var _s = new SandDollarMosiac();
 			_s.setCanvas(c);
-			_s.setGlyphGenerator(new SandDollarGlyphGenerator());
-			//_s.setGlyphGenerator(new CGlyphGenerator());
+			//_s.setGlyphGenerator(new SandDollarGlyphGenerator());
+			_s.setGlyphGenerator(new CGlyphGenerator());
 			//_s.setNumberGenerator(new SandDollarNumberGenerator());
 			//_s.setNumberGenerator(new FibonachiNumberGenerator());
-			//_s.setNumberGenerator(new HailStoneGenerator());
-			_s.setNumberGenerator(new SineGenerator());
+			_s.setNumberGenerator(new HailStoneGenerator());
+			//_s.setNumberGenerator(new SineGenerator());
 			_s.draw();
 			
 			function onResize() {
